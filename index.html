@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UstaBul Hesap Silme Talebi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f8fafc;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      margin-bottom: 20px;
+    }
+    h1, h2 { color: #0f172a; }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    input, textarea, button {
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      padding: 14px 16px;
+      font-size: 16px;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    button {
+      border: none;
+      cursor: pointer;
+      background: #f97316;
+      color: white;
+      font-weight: 700;
+    }
+    button:disabled {
+      opacity: 0.7;
+      cursor: progress;
+    }
+    .hint {
+      color: #64748b;
+      font-size: 14px;
+    }
+    .success {
+      color: #166534;
+      background: #dcfce7;
+      padding: 12px 14px;
+      border-radius: 12px;
+    }
+    .error {
+      color: #9a3412;
+      background: #ffedd5;
+      padding: 12px 14px;
+      border-radius: 12px;
+    }
+    a { color: #f97316; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>UstaBul Hesap Silme Talebi</h1>
+    <p>Bu sayfa, UstaBul hesabin icin silme talebi olusturman icin hazirlandi. Girdigin bilgiler uygulamadaki kullanici adi ve telefon numarasi ile eslesmelidir.</p>
+    <p class="hint">Yayinlamadan once bu dosyadaki <code>__SUPABASE_URL__</code> ve <code>__SUPABASE_ANON_KEY__</code> alanlarini kendi bilgilerinizle degistirin.</p>
+  </div>
+
+  <div class="card">
+    <form id="deletion-form">
+      <label for="username">Kullanici Adi</label>
+      <input id="username" name="username" autocomplete="username" required />
+
+      <label for="phone" style="margin-top: 16px;">Telefon Numarasi</label>
+      <input id="phone" name="phone" placeholder="0555 111 22 33" required />
+
+      <label for="reason" style="margin-top: 16px;">Silme Nedeni (Istege Bagli)</label>
+      <textarea id="reason" name="reason" placeholder="Istersen kisa bir aciklama yazabilirsin."></textarea>
+
+      <div id="result" style="margin-top: 16px; display: none;"></div>
+
+      <button id="submit-button" type="submit" style="margin-top: 18px;">Silme Talebi Gonder</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Ne oluyor?</h2>
+    <p>Bu islem hesabi aninda geri donulemez sekilde silmez. Once bir silme talebi olusturur. Talebin alindiginda ekip tarafindan incelenir ve gerekli islemler uygulanir.</p>
+    <p class="hint">Destek icin <a href="mailto:destek@ustabul.app">destek@ustabul.app</a> adresine ulasabilirsin.</p>
+  </div>
+
+  <script>
+    const supabaseUrl = "__SUPABASE_URL__";
+    const anonKey = "__SUPABASE_ANON_KEY__";
+
+    const form = document.getElementById("deletion-form");
+    const result = document.getElementById("result");
+    const submitButton = document.getElementById("submit-button");
+
+    function setResult(message, isError) {
+      result.style.display = "block";
+      result.className = isError ? "error" : "success";
+      result.textContent = message;
+    }
+
+    function normalizePhone(value) {
+      return value.replace(/\D/g, "");
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!supabaseUrl.includes("http") || anonKey.includes("__SUPABASE")) {
+        setResult("Bu sayfa henuz ayarlanmamis. Supabase bilgilerini yerlestirip tekrar yayinlaman gerekiyor.", true);
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Talep Gonderiliyor...";
+      result.style.display = "none";
+
+      const payload = {
+        p_username: document.getElementById("username").value.trim(),
+        p_phone_number: normalizePhone(document.getElementById("phone").value),
+        p_reason: document.getElementById("reason").value.trim(),
+        p_source: "web"
+      };
+
+      try {
+        const response = await fetch(`${supabaseUrl.replace(/\/$/, "")}/rest/v1/rpc/request_account_deletion`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": anonKey,
+            "Authorization": `Bearer ${anonKey}`
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const body = await response.text();
+        let parsed;
+        try {
+          parsed = JSON.parse(body);
+        } catch (error) {
+          parsed = null;
+        }
+
+        if (!response.ok) {
+          const errorMessage = parsed?.details || parsed?.message || "Silme talebi gonderilemedi.";
+          throw new Error(errorMessage);
+        }
+
+        setResult("Silme talebin alindi. En kisa surede incelenecek.", false);
+        form.reset();
+      } catch (error) {
+        setResult(error.message || "Silme talebi gonderilemedi.", true);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Silme Talebi Gonder";
+      }
+    });
+  </script>
+</body>
+</html>
