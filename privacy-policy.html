@@ -5,89 +5,270 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>UstaBul Gizlilik Politikasi</title>
   <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --title: #0f172a;
+      --accent: #f97316;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      max-width: 860px;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 920px;
       margin: 0 auto;
       padding: 32px 20px 64px;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #f8fafc;
     }
-    h1, h2 { color: #0f172a; }
+
     .card {
-      background: #ffffff;
-      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
       padding: 24px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      margin-bottom: 20px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+      margin-bottom: 18px;
     }
-    a { color: #f97316; }
+
+    h1, h2, h3 {
+      color: var(--title);
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 16px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin-bottom: 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #fff7ed;
+      color: #c2410c;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>UstaBul Gizlilik Politikasi</h1>
-    <p>Yururluk tarihi: 26 Mart 2026</p>
-    <p>Bu politika, UstaBul uygulamasinin hangi verileri isledigini, bu verileri ne amacla kullandigini ve kullanicilarin gizlilikle ilgili hangi haklara sahip oldugunu aciklar.</p>
-  </div>
+  <div class="container">
+    <section class="card">
+      <div class="eyebrow">UstaBul</div>
+      <h1>Gizlilik Politikasi</h1>
+      <p class="muted">Son guncelleme: 17 Nisan 2026</p>
+      <p>
+        Bu Gizlilik Politikasi, UstaBul mobil uygulamasini, bagli web sayfalarini ve ilgili hizmetleri kullanirken hangi verilerin
+        toplandigini, bu verilerin hangi amaclarla kullanildigini, kimlerle paylasilabilecegini ve kullanicilarin verileriyle ilgili hangi
+        haklara sahip oldugunu aciklar.
+      </p>
+      <p>
+        UstaBul, kullanicilarin oto servis, usta ve ilgili isletmeleri bulmasina, bunlari karsilastirmasina, yorum yapmasina ve belirli
+        durumlarda belgeyle desteklenmis yorum gondermesine yardimci olur.
+      </p>
+    </section>
 
-  <div class="card">
-    <h2>Toplanan veriler</h2>
-    <p>UstaBul, uygulama islevlerini saglamak icin su verileri isleyebilir:</p>
-    <ul>
-      <li>Kullanici adi</li>
-      <li>Gercek ad soyad</li>
-      <li>Telefon numarasi</li>
-      <li>Sehir ve ilce bilgisi</li>
-      <li>Yorum icerigi ve yorum puanlari</li>
-      <li>Favori isletmeler ve uygulama tercihleri</li>
-      <li>Cihaz konumu (izin verilirse, yakinlik hesaplamak icin)</li>
-    </ul>
-  </div>
+    <section class="card">
+      <h2>1. Topladigimiz veriler</h2>
+      <div class="grid">
+        <div>
+          <h3>Hesap ve profil verileri</h3>
+          <ul>
+            <li>Kullanici adi</li>
+            <li>Ad ve soyad</li>
+            <li>Telefon numarasi</li>
+            <li>Secilen sehir ve ilce bilgisi</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Kullanici icerikleri</h3>
+          <ul>
+            <li>Yorum metinleri</li>
+            <li>Puanlamalar</li>
+            <li>Favori isletmeler</li>
+            <li>Belge veya fis yuklemeleri</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Konum ve kullanim verileri</h3>
+          <ul>
+            <li>Cihaz konumu, yalnizca izin verilirse</li>
+            <li>Arama terimleri ve filtre secimleri</li>
+            <li>Uygulama ici tercih ve teknik hata kayitlari</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <div class="card">
-    <h2>Verilerin kullanim amaclari</h2>
-    <ul>
-      <li>Kullanici hesabi olusturmak ve giris akisini yonetmek</li>
-      <li>Yorum, oy ve favori ozelliklerini sunmak</li>
-      <li>Kullaniciya yakin isletmeleri gostermek</li>
-      <li>Harita, isletme detaylari ve gorselleri getirmek</li>
-      <li>Kotuye kullanim, spam ve guvenlik risklerini azaltmak</li>
-    </ul>
-  </div>
+    <section class="card">
+      <h2>2. Belge dogrulama ve e-Arsiv / e-Fatura verileri</h2>
+      <p>
+        UstaBul icinde belgeyle desteklenen yorum veya dogrulama ozellikleri kullanildiginda, yuklenen belge veya girilen belge bilgileri
+        islenebilir. Bu kapsamda asagidaki veriler alinabilir veya belgelerden otomatik olarak okunabilir:
+      </p>
+      <ul>
+        <li>Fatura veya belge gorseli / PDF dosyasi</li>
+        <li>Belge numarasi</li>
+        <li>Belge tarihi</li>
+        <li>Toplam tutar</li>
+        <li>Satıcıya ait VKN veya TCKN</li>
+        <li>Belgede yer alan ad, soyad veya unvan bilgileri</li>
+        <li>OCR ile cikarilan metinler</li>
+        <li>Dogrulama sonucu, dogrulama zamani ve dogrulama kaynagi</li>
+      </ul>
+      <p>
+        Bu veriler yalnizca belgeyi dogrulamak, sahte veya ilgisiz yorumlari azaltmak, gerekirse destek kaydi olusturmak ve
+        <strong>Dogrulanmis Kullanici</strong> gibi rozet mekanizmalarini yonetmek amaciyla kullanilir.
+      </p>
+      <p class="note">
+        Belge iceriginde gecen TCKN, ad, soyad, unvan veya benzeri hassas sayilabilecek bilgiler, herkese acik yorum alanlarinda otomatik
+        olarak yayinlanmaz. Bu veriler mumkun oldugunca sinirli erisim ilkesiyle, guvenli baglantilar uzerinden ve hizmetin gerektirdigi
+        sure boyunca saklanir.
+      </p>
+    </section>
 
-  <div class="card">
-    <h2>Ucuncu taraf servisler</h2>
-    <p>UstaBul, uygulama ozelliklerini sunmak icin asagidaki servislerden yararlanabilir:</p>
-    <ul>
-      <li>Google Maps Platform ve Google Places</li>
-      <li>Supabase</li>
-      <li>Firebase Authentication</li>
-      <li>Cloudflare Turnstile</li>
-    </ul>
-    <p>Bu servisler yalnizca gerekli oldugu durumlarda kullanilir.</p>
-  </div>
+    <section class="card">
+      <h2>3. Verileri neden kullaniyoruz</h2>
+      <ul>
+        <li>Hesap olusturmak, oturum acmak ve kullanici kimligini yonetmek</li>
+        <li>Kullaniciya sehir, ilce ve konuma gore ilgili isletmeleri gostermek</li>
+        <li>Yorum, puanlama ve favori ozelliklerini calistirmak</li>
+        <li>Arama sonuclarini ve onerileri iyilestirmek</li>
+        <li>Sahte yorum, kotuye kullanim, spam ve guvenlik risklerini azaltmak</li>
+        <li>Belgeyle desteklenen yorum veya dogrulama surecini yonetmek</li>
+        <li>Destek taleplerini, itirazlari ve hesap silme sureclerini incelemek</li>
+        <li>Yasal yukumlulukleri yerine getirmek</li>
+      </ul>
+    </section>
 
-  <div class="card">
-    <h2>Veri paylasimi</h2>
-    <p>UstaBul, kullanici verilerini reklam amacli satmaz. Veriler yalnizca uygulamanin teknik altyapisini saglamak, yorum gostermek veya zorunlu hukuki yukumlulukleri yerine getirmek icin islenir.</p>
-  </div>
+    <section class="card">
+      <h2>4. Veri isleme ve paylasim</h2>
+      <p>
+        UstaBul, kullanici verilerini reklam amacli satmaz. Veriler, yalnizca hizmeti calistirmak, guvenligi saglamak, teknik altyapiyi
+        surdurmek ve yasal yukumlulukleri yerine getirmek icin gerekli oldugu olcude islenir.
+      </p>
+      <p>Uygulama asagidaki hizmet saglayicilarla sinirli sekilde veri isleyebilir:</p>
+      <ul>
+        <li>Supabase: veritabani, kimlik dogrulama, depolama ve sunucu tarafli islevler</li>
+        <li>Google Maps Platform / Google Places: isletme bilgileri, konum, fotograf ve harita verileri</li>
+        <li>Firebase Authentication veya benzeri kimlik servisleri: oturum acma akislari</li>
+        <li>Cloudflare Turnstile veya benzeri guvenlik araclari: kotuye kullanim onleme</li>
+        <li>Resmi e-belge dogrulama surecinde ilgili resmi veya teknik dogrulama servisleri</li>
+      </ul>
+    </section>
 
-  <div class="card">
-    <h2>Veri saklama ve silme</h2>
-    <p>Hesap bilgileri, yorumlar ve iliskili veriler uygulama hizmetini sunmak icin saklanabilir. Yasal veya guvenlik gerekceleri disinda tutulmasi gerekmeyen veriler, kullanici talebi halinde silinebilir. Hesap silme talebi uygulama icinden veya yayinlanan web silme sayfasi uzerinden iletilebilir.</p>
-  </div>
+    <section class="card">
+      <h2>5. Verilerin ne kadar sure saklandigi</h2>
+      <ul>
+        <li>Hesap verileri, hesap aktif oldugu surece veya silme talebi sonuclanana kadar saklanabilir.</li>
+        <li>Yorumlar ve puanlamalar, hizmet butunlugu ve topluluk guveni icin yorum silinmedikce saklanabilir.</li>
+        <li>Belge dogrulama verileri, sahtecilik incelemesi, itiraz yonetimi ve teknik guvenlik gerekceleriyle sinirli bir sure tutulabilir.</li>
+        <li>Yasal yukumluluk gerektiren durumlarda belirli veriler daha uzun saklanabilir.</li>
+      </ul>
+    </section>
 
-  <div class="card">
-    <h2>Guvenlik</h2>
-    <p>Veriler modern sifreleme standartlari kullanilarak guvenli baglantilar uzerinden iletilir. Buna ragmen internet uzerinden yapilan hicbir aktarimin tamamen risksiz oldugu garanti edilemez.</p>
-  </div>
+    <section class="card">
+      <h2>6. Guvenlik</h2>
+      <p>
+        UstaBul, verilerin iletimi sirasinda guvenli baglantilar kullanir ve veriye erisimi yetki sinirlariyla yonetmeye calisir.
+        Bununla birlikte, internet uzerinden yapilan hicbir veri aktarimi veya elektronik saklama yontemi tamamen risksiz degildir.
+      </p>
+      <p>
+        Bu nedenle, makul teknik ve idari tedbirler almaya calissak da mutlak guvenlik garantisi veremeyiz.
+      </p>
+    </section>
 
-  <div class="card">
-    <h2>Iletisim</h2>
-    <p>Gizlilik veya veri taleplerin icin gelistirici ile iletisime gecebilirsin.</p>
-    <p>E-posta: <a href="mailto:destek@ustabul.app">destek@ustabul.app</a></p>
+    <section class="card">
+      <h2>7. Kullanici haklari</h2>
+      <p>Kullanici olarak asagidaki taleplerde bulunabilirsin:</p>
+      <ul>
+        <li>Hangi verilerin islendigi konusunda bilgi alma</li>
+        <li>Yanlis veya eksik verilerin duzeltilmesini isteme</li>
+        <li>Hesap silme veya veri silme talebinde bulunma</li>
+        <li>Belirli isleme faaliyetlerine itiraz etme</li>
+      </ul>
+      <p>
+        Hesap silme talepleri uygulama icinden veya yayinlanan silme sayfasi uzerinden iletilebilir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>8. Cocuklarin gizliligi</h2>
+      <p>
+        UstaBul, cocuklara yonelik bir hizmet olarak tasarlanmamistir. Uygulamayi kullanmak icin yeterli hukuki yetkiye sahip olman
+        beklenir. Bilerek cocuklardan veri toplama amacimiz yoktur.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>9. Politikadaki degisiklikler</h2>
+      <p>
+        Bu politika zaman zaman guncellenebilir. Onemli degisiklikler oldugunda uygulama icinde, web sayfasinda veya uygun baska bir
+        kanalla bildirim yapabiliriz.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>10. Iletisim</h2>
+      <p>Gizlilik, belge dogrulama verileri veya veri taleplerin icin bize ulasabilirsin:</p>
+      <p>E-posta: <a href="mailto:destek@ustabul.app">destek@ustabul.app</a></p>
+    </section>
   </div>
 </body>
 </html>
