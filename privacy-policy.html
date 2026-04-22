@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UstaBul Gizlilik Politikasi</title>
+  <title>UstaBul Gizlilik Politikası</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #64748b;
+      --bg: #f4f6fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --text: #18212f;
+      --muted: #5f6f85;
       --title: #0f172a;
-      --accent: #f97316;
-      --border: #e2e8f0;
+      --accent: #d97706;
+      --accent-soft: #fff7ed;
+      --border: #dbe3ee;
+      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
     }
 
     * {
@@ -23,27 +26,52 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+      background:
+        radial-gradient(circle at top left, rgba(217, 119, 6, 0.08), transparent 28%),
+        linear-gradient(180deg, #f7f9fc 0%, #eef3f9 100%);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     .container {
-      max-width: 920px;
+      max-width: 1024px;
       margin: 0 auto;
-      padding: 32px 20px 64px;
+      padding: 36px 20px 64px;
     }
 
+    .hero,
     .card {
-      background: var(--card);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
       margin-bottom: 18px;
     }
 
-    h1, h2, h3 {
+    .hero {
+      padding: 28px;
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
       color: var(--title);
       margin-top: 0;
     }
@@ -51,37 +79,74 @@
     h1 {
       font-size: 34px;
       line-height: 1.15;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     h2 {
       font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 17px;
       margin-bottom: 10px;
     }
 
-    p, li {
+    p,
+    li {
       font-size: 16px;
     }
 
     ul {
+      margin: 0;
       padding-left: 22px;
-      margin-bottom: 0;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: #fff7ed;
-      color: #c2410c;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      margin-bottom: 12px;
     }
 
     .muted {
       color: var(--muted);
+    }
+
+    .note,
+    .warning {
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-top: 14px;
+    }
+
+    .note {
+      background: #f8fafc;
+      border: 1px solid #dce6f3;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .info-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .info-box p {
+      margin: 0 0 8px;
+    }
+
+    .info-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-list li + li {
+      margin-top: 8px;
     }
 
     a {
@@ -94,181 +159,380 @@
       text-decoration: underline;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .note {
-      border-left: 4px solid var(--accent);
-      padding-left: 14px;
-      color: var(--muted);
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f3f4f6;
+      border-radius: 8px;
+      padding: 2px 6px;
+      font-size: 0.95em;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <section class="card">
+  <main class="container">
+    <section class="hero">
       <div class="eyebrow">UstaBul</div>
-      <h1>Gizlilik Politikasi</h1>
-      <p class="muted">Son guncelleme: 17 Nisan 2026</p>
+      <h1>Gizlilik Politikası</h1>
+      <p class="muted"><strong>Son Güncelleme Tarihi:</strong> 21.04.2026</p>
+      <p class="muted"><strong>Yürürlük Tarihi:</strong> 21.04.2026</p>
       <p>
-        Bu Gizlilik Politikasi, UstaBul mobil uygulamasini, bagli web sayfalarini ve ilgili hizmetleri kullanirken hangi verilerin
-        toplandigini, bu verilerin hangi amaclarla kullanildigini, kimlerle paylasilabilecegini ve kullanicilarin verileriyle ilgili hangi
-        haklara sahip oldugunu aciklar.
+        Bu Gizlilik Politikası, UstaBul mobil uygulamasının kullanımı sırasında işlenen kişisel verilere ilişkin genel bilgilendirme
+        sağlamak amacıyla hazırlanmıştır. Metin, Google Play User Data / Privacy Policy beklentileri ile 6698 sayılı Kişisel Verilerin
+        Korunması Kanunu kapsamında yer alan temel aydınlatma unsurları dikkate alınarak düzenlenmiştir.
       </p>
       <p>
-        UstaBul, kullanicilarin oto servis, usta ve ilgili isletmeleri bulmasina, bunlari karsilastirmasina, yorum yapmasina ve belirli
-        durumlarda belgeyle desteklenmis yorum gondermesine yardimci olur.
+        İşbu metin genel bilgilendirme amaçlı profesyonel bir taslaktır; avukat görüşü veya kesin hukuki danışmanlık niteliğinde değildir.
+        Uygulamanın fiili veri işleme faaliyetleri ile Google Play Data Safety beyanının birbirleriyle uyumlu tutulması gerekir.
       </p>
     </section>
 
     <section class="card">
-      <h2>1. Topladigimiz veriler</h2>
+      <h2>1. Veri Sorumlusu / İletişim Bilgileri</h2>
       <div class="grid">
-        <div>
-          <h3>Hesap ve profil verileri</h3>
-          <ul>
-            <li>Kullanici adi</li>
+        <div class="info-box">
+          <p><strong>Uygulama Adı:</strong> UstaBul</p>
+          <p><strong>Paket Adı:</strong> com.ustabul.android</p>
+          <p><strong>Geliştirici / Veri Sorumlusu:</strong> Umut Başkan</p>
+          <p><strong>Ülke:</strong> Türkiye</p>
+        </div>
+        <div class="info-box">
+          <p><strong>E-posta:</strong> <a href="mailto:app.ustabul@gmail.com">app.ustabul@gmail.com</a></p>
+          <p><strong>Kurumsal Web Sitesi:</strong> Ayrı bir kurumsal web sitesi bulunmayabilir.</p>
+          <p><strong>Gizlilik Politikası URL'si:</strong> <a href="https://baskanumut5.github.io/ustabul-account-delete/privacy-policy.html">Gizlilik Politikası</a></p>
+          <p><strong>Hesap / Veri Silme Bağlantısı:</strong> <a href="https://baskanumut5.github.io/ustabul-account-delete/">Hesap Silme Sayfası</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Kapsam</h2>
+      <p>
+        İşbu Gizlilik Politikası, UstaBul uygulamasını kullanan kullanıcıların kişisel verilerinin hangi kapsamda toplandığını, hangi
+        yöntemlerle işlendiğini, hangi amaçlarla kullanıldığını, kimlerle paylaşılabileceğini, ne kadar süre saklanabileceğini ve
+        kullanıcıların hangi haklara sahip olduğunu açıklamaktadır.
+      </p>
+      <p>
+        UstaBul; kullanıcıların oto servisleri, ustaları ve ilgili işletmeleri bulmasına, karşılaştırmasına, yorum yapmasına, favori listesi
+        oluşturmasına, işletme içeriklerini incelemesine ve belirli akışlarda belge veya görsel destekli içerik ile doğrulama süreçlerinden
+        yararlanmasına yardımcı olan bir mobil uygulamadır.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. Toplanan Kişisel Veriler</h2>
+      <div class="grid">
+        <div class="info-box">
+          <h3>Kimlik ve Hesap Bilgileri</h3>
+          <ul class="section-list">
+            <li>Kullanıcı adı</li>
             <li>Ad ve soyad</li>
-            <li>Telefon numarasi</li>
-            <li>Secilen sehir ve ilce bilgisi</li>
+            <li>Telefon numarası</li>
           </ul>
         </div>
-        <div>
-          <h3>Kullanici icerikleri</h3>
-          <ul>
+        <div class="info-box">
+          <h3>Konum Verileri</h3>
+          <ul class="section-list">
+            <li>Yaklaşık konum</li>
+            <li>Uygulamanın mevcut sürümünde hassas/precise konum yerine yaklaşık konum işlenmektedir</li>
+          </ul>
+        </div>
+        <div class="info-box">
+          <h3>Kullanıcı Tarafından Oluşturulan İçerikler</h3>
+          <ul class="section-list">
             <li>Yorum metinleri</li>
             <li>Puanlamalar</li>
-            <li>Favori isletmeler</li>
-            <li>Belge veya fis yuklemeleri</li>
+            <li>Favori listeleri</li>
+            <li>Arama, filtre ve tercih verileri</li>
+            <li>İşletme etkileşim verileri</li>
+            <li>İşletmeler için yüklenen dükkan fotoğrafları</li>
+            <li>Belge/fatura görselleri ve belge doğrulama verileri</li>
           </ul>
         </div>
-        <div>
-          <h3>Konum ve kullanim verileri</h3>
-          <ul>
-            <li>Cihaz konumu, yalnizca izin verilirse</li>
-            <li>Arama terimleri ve filtre secimleri</li>
-            <li>Uygulama ici tercih ve teknik hata kayitlari</li>
+        <div class="info-box">
+          <h3>Teknik ve Cihaz Verileri</h3>
+          <ul class="section-list">
+            <li>Cihaz bilgileri</li>
+            <li>Reklam kimliği / cihaz tanımlayıcıları</li>
+            <li>Reklam etkileşim verileri</li>
+            <li>Yerel depolama ve güvenli tercih kayıtları</li>
+          </ul>
+        </div>
+        <div class="info-box">
+          <h3>Başvuru ve Destek Verileri</h3>
+          <ul class="section-list">
+            <li>Hesap silme talebi kapsamında kullanıcı adı</li>
+            <li>Telefon numarası</li>
+            <li>Silme gerekçesi</li>
+            <li>Başvuru içeriği ve başvuru kayıtları</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <h2>2. Belge dogrulama ve e-Arsiv / e-Fatura verileri</h2>
-      <p>
-        UstaBul icinde belgeyle desteklenen yorum veya dogrulama ozellikleri kullanildiginda, yuklenen belge veya girilen belge bilgileri
-        islenebilir. Bu kapsamda asagidaki veriler alinabilir veya belgelerden otomatik olarak okunabilir:
-      </p>
-      <ul>
-        <li>Fatura veya belge gorseli / PDF dosyasi</li>
-        <li>Belge numarasi</li>
-        <li>Belge tarihi</li>
-        <li>Toplam tutar</li>
-        <li>Satıcıya ait VKN veya TCKN</li>
-        <li>Belgede yer alan ad, soyad veya unvan bilgileri</li>
-        <li>OCR ile cikarilan metinler</li>
-        <li>Dogrulama sonucu, dogrulama zamani ve dogrulama kaynagi</li>
-      </ul>
-      <p>
-        Bu veriler yalnizca belgeyi dogrulamak, sahte veya ilgisiz yorumlari azaltmak, gerekirse destek kaydi olusturmak ve
-        <strong>Dogrulanmis Kullanici</strong> gibi rozet mekanizmalarini yonetmek amaciyla kullanilir.
-      </p>
-      <p class="note">
-        Belge iceriginde gecen TCKN, ad, soyad, unvan veya benzeri hassas sayilabilecek bilgiler, herkese acik yorum alanlarinda otomatik
-        olarak yayinlanmaz. Bu veriler mumkun oldugunca sinirli erisim ilkesiyle, guvenli baglantilar uzerinden ve hizmetin gerektirdigi
-        sure boyunca saklanir.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>3. Verileri neden kullaniyoruz</h2>
-      <ul>
-        <li>Hesap olusturmak, oturum acmak ve kullanici kimligini yonetmek</li>
-        <li>Kullaniciya sehir, ilce ve konuma gore ilgili isletmeleri gostermek</li>
-        <li>Yorum, puanlama ve favori ozelliklerini calistirmak</li>
-        <li>Arama sonuclarini ve onerileri iyilestirmek</li>
-        <li>Sahte yorum, kotuye kullanim, spam ve guvenlik risklerini azaltmak</li>
-        <li>Belgeyle desteklenen yorum veya dogrulama surecini yonetmek</li>
-        <li>Destek taleplerini, itirazlari ve hesap silme sureclerini incelemek</li>
-        <li>Yasal yukumlulukleri yerine getirmek</li>
+      <h2>4. Kişisel Verilerin Toplanma Yöntemi</h2>
+      <ul class="section-list">
+        <li>Kullanıcının kayıt, giriş, profil ve başvuru formları aracılığıyla doğrudan bilgi girmesi</li>
+        <li>Uygulama içindeki yorum, favori, işletme fotoğrafı yükleme ve benzeri kullanıcı işlemleri</li>
+        <li>Cihaz izinleri aracılığıyla, izin verilmesi halinde konum verisinin alınması</li>
+        <li>Dosya ve görsel yükleme akışları üzerinden kullanıcı tarafından seçilen içeriklerin iletilmesi</li>
+        <li>Firebase Authentication, Google Play Services Location, Google Places / Google Maps Platform, Google AdMob, Supabase ve benzeri üçüncü taraf servisler veya SDK'lar üzerinden oluşan teknik işleme süreçleri</li>
+        <li>Hesap silme bağlantısı ve ilgili web akışları üzerinden yapılan başvurular</li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>4. Veri isleme ve paylasim</h2>
-      <p>
-        UstaBul, kullanici verilerini reklam amacli satmaz. Veriler, yalnizca hizmeti calistirmak, guvenligi saglamak, teknik altyapiyi
-        surdurmek ve yasal yukumlulukleri yerine getirmek icin gerekli oldugu olcude islenir.
-      </p>
-      <p>Uygulama asagidaki hizmet saglayicilarla sinirli sekilde veri isleyebilir:</p>
-      <ul>
-        <li>Supabase: veritabani, kimlik dogrulama, depolama ve sunucu tarafli islevler</li>
-        <li>Google Maps Platform / Google Places: isletme bilgileri, konum, fotograf ve harita verileri</li>
-        <li>Firebase Authentication veya benzeri kimlik servisleri: oturum acma akislari</li>
-        <li>Cloudflare Turnstile veya benzeri guvenlik araclari: kotuye kullanim onleme</li>
-        <li>Resmi e-belge dogrulama surecinde ilgili resmi veya teknik dogrulama servisleri</li>
+      <h2>5. Kişisel Verilerin İşlenme Amaçları</h2>
+      <ul class="section-list">
+        <li>Hesap oluşturma, oturum açma ve kullanıcı hesabının yönetimi</li>
+        <li>Kullanıcının kimliğinin doğrulanması</li>
+        <li>Uygulama işlevlerinin sağlanması ve sürdürülmesi</li>
+        <li>Yakın işletmelerin ve ilgili sonuçların kullanıcıya sunulması</li>
+        <li>Yorum, puanlama, favori ve işletme fotoğrafı yükleme özelliklerinin çalıştırılması</li>
+        <li>Kullanıcı tercihleri ve uygulama içi deneyimin yönetilmesi</li>
+        <li>Belge veya görsel destekli içerik ile doğrulama süreçlerinin yürütülmesi</li>
+        <li>Kötüye kullanımın, sahte kayıtların, spam ve suistimalin önlenmesi</li>
+        <li>Reklam sunumu, reklam sıklığı yönetimi, reklam performansının ölçülmesi ve reklam hizmetlerinin işletilmesi</li>
+        <li>Hesap silme taleplerinin alınması, doğrulanması ve sonuçlandırılması</li>
+        <li>Sistem güvenliğinin sağlanması, hata ve teknik sorunların giderilmesi</li>
+        <li>Yasal yükümlülüklerin yerine getirilmesi ve yetkili kurum taleplerinin karşılanması</li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>5. Verilerin ne kadar sure saklandigi</h2>
-      <ul>
-        <li>Hesap verileri, hesap aktif oldugu surece veya silme talebi sonuclanana kadar saklanabilir.</li>
-        <li>Yorumlar ve puanlamalar, hizmet butunlugu ve topluluk guveni icin yorum silinmedikce saklanabilir.</li>
-        <li>Belge dogrulama verileri, sahtecilik incelemesi, itiraz yonetimi ve teknik guvenlik gerekceleriyle sinirli bir sure tutulabilir.</li>
-        <li>Yasal yukumluluk gerektiren durumlarda belirli veriler daha uzun saklanabilir.</li>
+      <h2>6. İşlemenin Hukuki Sebepleri</h2>
+      <p>Kişisel veriler, KVKK kapsamında somut veri işleme faaliyetinin niteliğine göre aşağıdaki hukuki sebeplere dayanılarak işlenebilir:</p>
+      <ul class="section-list">
+        <li>Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması</li>
+        <li>Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi</li>
+        <li>Bir hakkın tesisi, kullanılması veya korunması için veri işlemenin zorunlu olması</li>
+        <li>İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması</li>
+        <li>Açık rıza gerektiren hallerde ilgili kişinin açık rızasının alınması</li>
+      </ul>
+      <div class="note">
+        Konum, reklam teknolojileri, cihaz tanımlayıcıları ve belirli üçüncü taraf hizmetler bakımından hukuki sebep değerlendirmesi somut
+        uygulama davranışına göre ayrıca gözden geçirilmelidir.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>7. Verilerin Paylaşılması / Aktarılması</h2>
+      <p>
+        Kişisel veriler, uygulamanın çalıştırılması ve ilgili hizmetlerin sunulması amacıyla sınırlı olarak aşağıdaki taraflarla paylaşılabilir
+        veya bu taraflar aracılığıyla işlenebilir:
+      </p>
+      <ul class="section-list">
+        <li><strong>Firebase Authentication:</strong> telefon doğrulama ve kimlik doğrulama süreçleri</li>
+        <li><strong>Supabase:</strong> uygulama verilerinin, kullanıcı içeriklerinin ve ilişkili sunucu tarafı süreçlerin yönetimi</li>
+        <li><strong>Google Play Services Location:</strong> konum tabanlı işlevlerin sağlanması</li>
+        <li><strong>Google Places / Google Maps Platform:</strong> işletme bilgileri, konum, ilgili içerikler ve işletme gösterim süreçleri</li>
+        <li><strong>Google AdMob / Google Mobile Ads SDK:</strong> reklam gösterimi, reklam ölçümleme ve reklam hizmetlerinin işletilmesi</li>
+        <li><strong>Cloudflare Turnstile:</strong> kötüye kullanım önleme ve güvenlik doğrulaması</li>
+        <li>Yetkili kamu kurum ve kuruluşları, hukuk veya denetim süreçleri: yalnızca yasal yükümlülük veya resmi talep halinde</li>
+      </ul>
+      <div class="note">
+        UstaBul, kullanıcı verilerini kendi nam ve hesabına ticari olarak satmayı amaçlamaz. Bununla birlikte, reklam teknolojileri ve üçüncü
+        taraf SDK'lar kendi teknik altyapıları çerçevesinde belirli verileri işleyebilir.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>8. Yurt Dışına Aktarım</h2>
+      <p>
+        Uygulamada kullanılan Firebase, Google servisleri, Google AdMob, Supabase, GitHub Pages ve benzeri altyapılar nedeniyle kişisel
+        verilerin yurt dışındaki sunucularda işlenmesi, saklanması veya bu altyapılar üzerinden aktarılması söz konusu olabilir.
+      </p>
+      <p>
+        Bu kapsamda yurt dışına veri aktarımı, KVKK'nın ilgili hükümleri çerçevesinde somut olayın şartlarına göre açık rıza, kanuni
+        istisnalar, yeterlilik veya uygun güvenceler temelinde değerlendirilebilir.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>9. Veri Saklama Süresi</h2>
+      <p>
+        Tarafınızdan verilen bilgi doğrultusunda, kullanıcı verileri esas olarak kullanıcı silme talebinde bulununcaya kadar veya ilgili veri
+        işleme amacı ortadan kalkıncaya kadar saklanabilir.
+      </p>
+      <ul class="section-list">
+        <li><strong>Hesap verileri:</strong> kullanıcı hesabı aktif olduğu sürece ve kullanıcı silme talebinde bulununcaya kadar</li>
+        <li><strong>Yorumlar, puanlamalar, favoriler ve kullanıcı içerikleri:</strong> ilgili içerik kaldırılıncaya, hesap silme talebi sonuçlanıncaya veya hizmetin bütünlüğü bakımından gerekli süre sona erinceye kadar</li>
+        <li><strong>İşletme fotoğrafları, belge/görsel yüklemeleri:</strong> ilgili yükleme amacı devam ettiği, kullanıcı silme talebi sonuçlanmadığı veya doğrulama, itiraz ya da güvenlik gerekliliği bulunduğu sürece</li>
+        <li><strong>Başvuru ve hesap silme kayıtları:</strong> talebin değerlendirilmesi, doğrulanması ve gerektiğinde ispat veya denetim amacıyla makul süre boyunca</li>
+        <li><strong>Teknik kayıtlar ve güvenlik logları:</strong> sistem güvenliği, hata ayıklama ve mevzuat gereklilikleri doğrultusunda gerekli süre kadar</li>
+        <li><strong>Yasal yükümlülük doğuran veriler:</strong> ilgili mevzuatta öngörülen süre boyunca</li>
+      </ul>
+      <p>Saklama süresi sona erdiğinde veriler silinir, yok edilir veya anonim hale getirilir.</p>
+    </section>
+
+    <section class="card">
+      <h2>10. Veri Güvenliği Tedbirleri</h2>
+      <p>
+        UstaBul, kişisel verilerin hukuka aykırı olarak işlenmesini ve erişilmesini önlemek ve verilerin muhafazasını sağlamak amacıyla makul
+        ölçüde teknik ve idari tedbirler almaya çalışır.
+      </p>
+      <ul class="section-list">
+        <li>TLS / güvenli bağlantı kullanımı</li>
+        <li>Erişim yetkilerinin sınırlandırılması</li>
+        <li>Veri minimizasyonu yaklaşımı</li>
+        <li>Android Keystore / EncryptedSharedPreferences tabanlı yerel güvenli saklama</li>
+        <li><code>allowBackup=false</code> gibi uygulama düzeyinde koruyucu yapılandırmalar</li>
+        <li>Sunucu tarafı erişim kontrolleri ve doğrulama mekanizmaları</li>
+      </ul>
+      <div class="note">
+        İnternet üzerinden yapılan veri aktarımı ve dijital sistemler tamamen risksiz değildir; bu nedenle mutlak güvenlik garantisi verilemez.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>11. Kullanıcı Hakları</h2>
+      <p>KVKK md. 11 kapsamında ilgili kişiler, veri sorumlusuna başvurarak genel olarak aşağıdaki haklara sahip olabilir:</p>
+      <ul class="section-list">
+        <li>Kişisel veri işlenip işlenmediğini öğrenme</li>
+        <li>Kişisel verileri işlenmişse buna ilişkin bilgi talep etme</li>
+        <li>Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme</li>
+        <li>Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme</li>
+        <li>Eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme</li>
+        <li>KVKK ve ilgili mevzuat çerçevesinde kişisel verilerin silinmesini veya yok edilmesini isteme</li>
+        <li>Düzeltme, silme veya yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme</li>
+        <li>İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhe bir sonucun ortaya çıkmasına itiraz etme</li>
+        <li>Kişisel verilerin kanuna aykırı işlenmesi sebebiyle zarara uğraması halinde zararın giderilmesini talep etme</li>
       </ul>
     </section>
 
     <section class="card">
-      <h2>6. Guvenlik</h2>
-      <p>
-        UstaBul, verilerin iletimi sirasinda guvenli baglantilar kullanir ve veriye erisimi yetki sinirlariyla yonetmeye calisir.
-        Bununla birlikte, internet uzerinden yapilan hicbir veri aktarimi veya elektronik saklama yontemi tamamen risksiz degildir.
-      </p>
-      <p>
-        Bu nedenle, makul teknik ve idari tedbirler almaya calissak da mutlak guvenlik garantisi veremeyiz.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>7. Kullanici haklari</h2>
-      <p>Kullanici olarak asagidaki taleplerde bulunabilirsin:</p>
-      <ul>
-        <li>Hangi verilerin islendigi konusunda bilgi alma</li>
-        <li>Yanlis veya eksik verilerin duzeltilmesini isteme</li>
-        <li>Hesap silme veya veri silme talebinde bulunma</li>
-        <li>Belirli isleme faaliyetlerine itiraz etme</li>
+      <h2>12. Hesap Silme / Veri Silme / Başvuru Usulü</h2>
+      <p>Uygulama hesap oluşturma özelliği içermektedir ve kullanıcılar hesap silme talebinde bulunabilir.</p>
+      <ul class="section-list">
+        <li>Uygulama içi ilgili ayarlar / hesap silme akışı üzerinden</li>
+        <li>Yayınlanmış hesap silme bağlantısı üzerinden: <a href="https://baskanumut5.github.io/ustabul-account-delete/">https://baskanumut5.github.io/ustabul-account-delete/</a></li>
+        <li>E-posta üzerinden başvuru ile: <a href="mailto:app.ustabul@gmail.com">app.ustabul@gmail.com</a></li>
       </ul>
       <p>
-        Hesap silme talepleri uygulama icinden veya yayinlanan silme sayfasi uzerinden iletilebilir.
+        Başvuruda kullanıcı adı, telefon numarası, talebin konusu ve açıklayıcı bilgi paylaşılması, işlemin doğrulanması ve sonuçlandırılması
+        bakımından faydalı olabilir.
       </p>
+      <div class="warning">
+        Hesap silme talebinin alınması, verilerin her durumda anında ve otomatik olarak silineceği anlamına gelmez. Talep; güvenlik, doğrulama,
+        mevzuat, olası uyuşmazlıklar ve hizmetin teknik gereklilikleri çerçevesinde değerlendirilebilir.
+      </div>
     </section>
 
     <section class="card">
-      <h2>8. Cocuklarin gizliligi</h2>
+      <h2>13. Çocukların Gizliliği</h2>
       <p>
-        UstaBul, cocuklara yonelik bir hizmet olarak tasarlanmamistir. Uygulamayi kullanmak icin yeterli hukuki yetkiye sahip olman
-        beklenir. Bilerek cocuklardan veri toplama amacimiz yoktur.
+        UstaBul, çocuklara yönelik özel olarak tasarlanmış bir uygulama değildir. Hedef kitle genel kullanıcıdır. Veri sorumlusu, bilerek
+        çocuklardan kişisel veri toplamayı amaçlamaz. Buna rağmen çocuklara ait kişisel verilerin işlendiğinin fark edilmesi halinde somut
+        durum ayrıca değerlendirilir ve gerekli tedbirler alınır.
       </p>
     </section>
 
     <section class="card">
-      <h2>9. Politikadaki degisiklikler</h2>
+      <h2>14. Çerezler / SDK / Analiz Teknolojileri / Reklam Teknolojileri</h2>
       <p>
-        Bu politika zaman zaman guncellenebilir. Onemli degisiklikler oldugunda uygulama icinde, web sayfasinda veya uygun baska bir
-        kanalla bildirim yapabiliriz.
+        UstaBul bir mobil uygulamadır; bu nedenle klasik web tarayıcı çerezleri yerine çoğunlukla SDK'lar, yerel depolama mekanizmaları,
+        cihaz tanımlayıcıları ve teknik servis entegrasyonları kullanılabilir.
+      </p>
+      <h3>Kullanılan veya kullanılabilecek teknolojiler</h3>
+      <ul class="section-list">
+        <li>Firebase Authentication</li>
+        <li>Google Play Services Location</li>
+        <li>Google Places / Google Maps Platform servisleri</li>
+        <li>Google ML Kit Text Recognition</li>
+        <li>Supabase</li>
+        <li>Coil</li>
+        <li>Google AdMob / Google Mobile Ads SDK</li>
+        <li>Cloudflare Turnstile</li>
+      </ul>
+      <h3>Reklam teknolojileri</h3>
+      <p>
+        Uygulamada Google AdMob ve/veya Google reklam teknolojileri kullanılmaktadır veya kullanılabilir. Bu kapsamda reklamların sunulması,
+        ölçümlenmesi, sıklık kontrolü, kötüye kullanımın önlenmesi ve reklam performansının değerlendirilmesi amacıyla cihaz bilgileri,
+        reklam kimliği, teknik tanımlayıcılar ve reklam etkileşim verileri işlenebilir.
+      </p>
+      <p>
+        Kişiselleştirilmiş reklam kullanımı bakımından uygulamanın güncel reklam yapılandırması, Google hizmetleri, cihaz ayarları ve kullanıcı
+        tercihleri belirleyici olabilir. Uygulamanın mevcut sürümünde kişiselleştirilmiş reklam kullanımının aktif olarak hedeflenmediği,
+        reklam entegrasyonunun bu aşamada genel reklam gösterimi ve reklam performansının ölçülmesi amacıyla kurgulandığı esas alınmaktadır.
+      </p>
+      <p>
+        Uygulamanın mevcut veya sonraki sürümlerinde reklam teknolojilerinin kapsamının değişmesi halinde işbu politika ile Google Play Data
+        Safety beyanı güncellenecektir.
+      </p>
+      <h3>Analitik ve performans</h3>
+      <p>
+        Mevcut teknik kontrole göre uygulamada şu aşamada bağımsız analitik veya crash raporlama araçları için açık bir kullanım beyanı
+        bulunmamaktadır. İleride bu servislerin eklenmesi halinde politika ayrıca güncellenecektir.
       </p>
     </section>
 
     <section class="card">
-      <h2>10. Iletisim</h2>
-      <p>Gizlilik, belge dogrulama verileri veya veri taleplerin icin bize ulasabilirsin:</p>
-      <p>E-posta: <a href="mailto:destek@ustabul.app">destek@ustabul.app</a></p>
+      <h2>15. Üçüncü Taraf Hizmetler ve Bağlantılar</h2>
+      <p>Uygulama, üçüncü taraf hizmetlere veya bağlantılara yönlendirme içerebilir. Bu hizmetler kendi gizlilik politikalarına tabidir.</p>
+      <ul class="section-list">
+        <li>Google hizmetleri</li>
+        <li>Firebase hizmetleri</li>
+        <li>Supabase altyapısı</li>
+        <li>Google AdMob</li>
+        <li>GitHub Pages üzerinde yayınlanan politika ve hesap silme sayfaları</li>
+        <li>Cloudflare Turnstile</li>
+      </ul>
+      <p>Üçüncü taraf hizmet sağlayıcıların veri işleme faaliyetleri üzerinde veri sorumlusunun her zaman tam kontrolü bulunmayabilir.</p>
     </section>
-  </div>
+
+    <section class="card">
+      <h2>16. Politika Değişiklikleri</h2>
+      <p>
+        Bu Gizlilik Politikası, uygulamanın teknik yapısı, kullanılan SDK'lar, reklam teknolojileri, yasal yükümlülükler veya hizmet kapsamındaki
+        değişikliklere bağlı olarak güncellenebilir. Güncel metin, yukarıda belirtilen gizlilik politikası bağlantısında yayımlanır.
+      </p>
+      <p>Esaslı değişiklikler halinde uygulama içi bildirim, güncel URL veya uygun diğer yöntemlerle ayrıca bilgilendirme yapılabilir.</p>
+    </section>
+
+    <section class="card">
+      <h2>17. İletişim</h2>
+      <p>Gizlilik, kişisel veriler, başvuru süreçleri, hesap silme talepleri veya veri işleme faaliyetlerine ilişkin sorularınız için:</p>
+      <ul class="section-list">
+        <li><strong>Veri Sorumlusu:</strong> Umut Başkan</li>
+        <li><strong>E-posta:</strong> <a href="mailto:app.ustabul@gmail.com">app.ustabul@gmail.com</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>18. Google Play Kontrol Listesi</h2>
+      <ul class="section-list">
+        <li>Gizlilik politikası URL'si aktif ve herkese açıktır.</li>
+        <li>Hesap oluşturma ve hesap silme yöntemleri politikada açıklanmıştır.</li>
+        <li>Reklam kullanımı ve Google AdMob entegrasyonu politikada belirtilmiştir.</li>
+        <li>Konum kullanımı, dosya/görsel yükleme ve kullanıcı içerikleri açıklanmıştır.</li>
+        <li>Yurt dışına aktarım ihtimali belirtilmiştir.</li>
+        <li>KVKK md. 11 kapsamındaki genel kullanıcı hakları özetlenmiştir.</li>
+        <li>Google Play Data Safety beyanı ile son sürüm uygulama davranışının yayın öncesinde ayrıca karşılaştırılması gerekir.</li>
+        <li>Kişiselleştirilmiş reklam kullanımının mevcut sürümde aktif olarak hedeflenmediği dikkate alınmalıdır.</li>
+        <li>AD_ID ve reklam kimliğiyle ilgili Play Console beyanı, AdMob entegrasyonu ile uyumlu şekilde doldurulmalıdır.</li>
+        <li>Yaklaşık konum kullanımının Play Console beyanıyla uyumlu olduğunun teyit edilmesi gerekir.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>19. Data Safety Formu ile Eşleştirilecek Alanlar</h2>
+      <ul class="section-list">
+        <li><strong>Kişisel bilgiler:</strong> ad/soyad, telefon numarası, kullanıcı adı</li>
+        <li><strong>Konum:</strong> yaklaşık konum</li>
+        <li><strong>Kullanıcı tarafından oluşturulan içerik:</strong> yorumlar, puanlamalar, işletme fotoğrafları, belge veya görsel yüklemeleri</li>
+        <li><strong>Uygulama etkinliği:</strong> favoriler, arama/filter/tercih verileri, işletme etkileşim verileri, reklam etkileşim verileri</li>
+        <li><strong>Cihaz veya diğer kimlikler:</strong> reklam kimliği, cihaz tanımlayıcıları ve AD_ID</li>
+        <li><strong>Amaçlar:</strong> uygulama işlevleri, hesap yönetimi, güvenlik, kötüye kullanım önleme, reklam veya pazarlama, reklam performans ölçümü</li>
+        <li><strong>Aktarım yapılan taraflar:</strong> Firebase Authentication, Supabase, Google Places / Google Maps Platform, Google Play Services Location, Google AdMob, Cloudflare Turnstile</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>20. Yayınlamadan Önce Doldurulması Gereken Boş Alanlar</h2>
+      <ul class="section-list">
+        <li>Google Play Data Safety formunda reklam kimliği, cihaz tanımlayıcıları ve reklam amacı alanlarının son sürümle uyumlu biçimde işaretlenmesi</li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
